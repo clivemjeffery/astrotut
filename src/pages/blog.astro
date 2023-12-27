@@ -1,6 +1,9 @@
 ---
+import 'missing.css';
+import '../styles/missing-custom.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 const pageTitle = "Tutorial Blog";
----
 ---
 <html lang="en">
 	<head>
@@ -8,19 +11,10 @@ const pageTitle = "Tutorial Blog";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
 		<title>Astro Tutorial Blog Page</title>
 	</head>
 	<body>
-		<header class="navbar">
-			<nav aria-label="Site sections">
-			  <ul role="list">
-				<li><a href="/">Home</a>
-				<li><a href="/about">About</a>
-				<li><a href="/blog">Blog</a>
-			  </ul>
-			</nav>
-		</header>
+		<Navigation />
 		<main>
 			<p>So this could be the first blog page. Or it might be
             the index of a page bundle. We'll see how Astro does
@@ -31,5 +25,6 @@ const pageTitle = "Tutorial Blog";
 			<p>Turns out, you need the subfolders to be under pages</p>
 			<p><a href="./posts/1">Like Post 1 here</a></p>
 		</main>
+		<Footer />
 	</body>
 </html>

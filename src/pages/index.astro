@@ -1,4 +1,9 @@
 ---
+import 'missing.css';
+import '../styles/missing-custom.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "Astro Tutorial";
 ---
 
@@ -8,23 +13,14 @@ const pageTitle = "Astro Tutorial";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<header class="navbar">
-			<nav aria-label="Site sections">
-			  <ul role="list">
-				<li><a href="/">Home</a>
-				<li><a href="/about">About</a>
-				<li><a href="/blog">Blog</a>
-				<li><a href="https://jelpo-gumlings.netlify.app/" target="_blank">Live</a>
-			  </ul>
-			</nav>
-		</header>
+		<Navigation />
 		<main>
 			<h1>{pageTitle}</h1>
 			<p>Currently static and with plenty of code duplication.</p>
 		</main>
+		<Footer />
 	</body>
 </html>

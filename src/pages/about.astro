@@ -1,5 +1,7 @@
 ---
-import '../styles/global.css';
+import 'missing.css';
+import '../styles/missing-custom.css';
+import Navigation from '../components/Navigation.astro';
 
 const pageTitle = "About Me";
 
@@ -41,15 +43,7 @@ const textCase = "lowercase";
 		</style>
 	</head>
 	<body>
-		<header class="navbar">
-			<nav aria-label="Site sections">
-			  <ul role="list">
-				<li><a href="/">Home</a>
-				<li><a href="/about">About</a>
-				<li><a href="/blog">Blog</a>
-			  </ul>
-			</nav>
-		</header>
+		<Navigation />
 		<main>
 			<h1>Statements</h1>
 			{happy && <p>I am happy to be learning Astro!</p>}

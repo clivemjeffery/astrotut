@@ -1,0 +1,13 @@
+---
+const isDev = import.meta.env.DEV;
+---
+<header class="navbar">
+    <nav aria-label="Site sections">
+      <ul role="list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        {isDev && <li><a href="https://jelpo-gumlings.netlify.app/">Live</a></li>}
+      </ul>
+    </nav>
+</header>

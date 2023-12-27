@@ -1,0 +1,8 @@
+:root {
+  --bg: var(--teal-1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.-no-dark-theme) {
+      --bg: var(--teal-9)
+  }
+}

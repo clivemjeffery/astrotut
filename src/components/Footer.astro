@@ -1,0 +1,10 @@
+---
+const technologies = ['Astro', 'missing.css', 'more'];
+---
+<footer>
+    <p>
+        Made with
+        {technologies.slice(0,-2).map((t) => (<span>{t}, </span>))}
+        {technologies.at(-2)} and {technologies.at(-1)}.
+    </p>
+</footer>

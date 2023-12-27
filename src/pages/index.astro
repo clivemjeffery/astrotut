@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = "Astro Tutorial";
 ---
 
 <html lang="en">
@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
-		<title>Astro Tutorial</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<header class="navbar">
@@ -23,7 +23,7 @@
 			</nav>
 		</header>
 		<main>
-			<h1>The Astro Tutorial</h1>
+			<h1>{pageTitle}</h1>
 			<p>Currently static and with plenty of code duplication.</p>
 		</main>
 	</body>

@@ -1,7 +1,10 @@
 ---
 const isDev = import.meta.env.DEV;
 ---
-<header class="navbar">
+<header class="navbar" data-overflow-nav>
+  <button class="iconbutton" data-nav-expander aria-hidden>
+    &#x2630; <!-- trigram for heaven -->
+  </button>
     <nav aria-label="Site sections">
       <ul role="list">
         <li><a href="/">Home</a></li>

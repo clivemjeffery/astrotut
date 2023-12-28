@@ -1,10 +1,10 @@
 ---
-const technologies = ['Astro', 'missing.css', 'more'];
+import Tech from "./Tech.astro";
 ---
 <footer>
     <p>
         Made with
-        {technologies.slice(0,-2).map((t) => (<span>{t}, </span>))}
-        {technologies.at(-2)} and {technologies.at(-1)}.
+        <Tech name="Astro" url="https://astro.build"></Tech> and
+        <Tech name="missing.css" url="https://missing.style"></Tech>.
     </p>
 </footer>

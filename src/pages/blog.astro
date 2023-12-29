@@ -1,13 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob('../pages/posts/*.md');
+const allNews = await Astro.glob('../pages/news/*/*.md');
 ---
 <BaseLayout pageTitle={'Tutorial Blog'}>
-	<p>So this could be the first blog page. Or it might be
-	the index of a page bundle. We'll see how Astro does
-	that kind of thing.</p>
-	<p>Whatever, it didn't work to put the file in a different
-		folder to <code>pages</code>. Not that I tried hard.
+	<p>Tutorial Section 5 - globbing files into collections.</p>
+	<p><a href="../posts/1">Direct link to Post 1</a></p>
+
+	<p>Generated links to all posts:
+		<ul>
+			{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+		</ul>
+		<p>End of posts</p>
 	</p>
-	<p>Turns out, you need the subfolders to be under pages</p>
-	<p><a href="../posts/1">Like Post 1 here</a></p>
+	<p>Another list:
+		<ul>
+			{allNews.map((n) =>
+				<li>
+					<a href={n.url}>{n.frontmatter.title}</a>
+				</li>)
+			}
+		</ul>
+		<p>End of other.</p>
+	</p>
+	
 </BaseLayout>

@@ -1,4 +1,5 @@
 ---
+import ThemeIcon from "./ThemeIcon.astro"
 const isDev = import.meta.env.DEV;
 ---
 <header class="navbar" data-overflow-nav>
@@ -12,6 +13,7 @@ const isDev = import.meta.env.DEV;
         <li><a href="/blog">Blog</a></li>
         <li><a href="/tags">Tags</a></li>
         {isDev && <li><a href="https://jelpo-gumlings.netlify.app/">Live</a></li>}
+        <li><ThemeIcon /></li>
       </ul>
     </nav>
 </header>

@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from '../components/Greeting.jsx';
 const pageTitle = "Astro Tutorial";
 ---
 <BaseLayout pageTitle={pageTitle}>
-	<p>New there's less code duplication.</p>
+	<Greeting client:load messages={["Hi", "Hello", "Wotcha", "Now then", "Greetings"]}/>
+	<p>Now on stage 6.</p>
 </BaseLayout>

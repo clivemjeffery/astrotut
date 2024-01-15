@@ -1,21 +1,40 @@
 ---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob('../pages/posts/*.md');
-const allNews = await Astro.glob('../pages/news/*/*.md');
+const oldNews = await Astro.glob('../pages/old-news/*/*.md');
+const allNews = await getCollection("news");
 ---
 <BaseLayout pageTitle={'Tutorial Blog'}>
-	<p>Tutorial Section 5 - globbing files into collections.</p>
-	<p><a href="../posts/1">Direct link to Post 1</a></p>
+	<p>Tutorial Section 5 - globbing file lists.</p>
+	<p>Updated with addendum on Astro Collections.</p>
 
-	<p>Generated links to all posts:
+	<p>Generated links to the collection: content/news.</p>
+	<ul>
+	  {
+		allNews.map((post) => (
+		  <li>
+			<a href={`/news/${post.slug}/`}>
+				<Image src={post.data.cover}
+					alt={post.data.coverAlt}
+					width="240" />
+				{post.data.title}
+			</a>
+		  </li>
+		))
+	  }
+	</ul>
+
+	<p>Generated links to all posts in the posts folder using the glob method:
 		<ul>
 			{allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
 		</ul>
 		<p>End of posts</p>
 	</p>
-	<p>Another list:
+	<p>Generated links to files in a the pages subfolder old-news (also via glob):
 		<ul>
-			{allNews.map((n) =>
+			{oldNews.map((n) =>
 				<li>
 					<a href={n.url}>{n.frontmatter.title}</a>
 				</li>)
@@ -23,5 +42,7 @@ const allNews = await Astro.glob('../pages/news/*/*.md');
 		</ul>
 		<p>End of other.</p>
 	</p>
+
+	<p><a href="../posts/1">Direct link to Post 1</a></p>
 	
 </BaseLayout>

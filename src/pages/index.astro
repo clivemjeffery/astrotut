@@ -1,9 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from '../components/Greeting.jsx';
+import Greeting from '@components/Greeting.jsx';
+
+import { Image } from 'astro:assets';
+import img07 from './07.jpg';
+import img04 from './_04.jpg';
+import imgRugby1 from '@images/rugby-tournament/1.jpg';
+
 const pageTitle = "Astro Tutorial";
 ---
 <BaseLayout pageTitle={pageTitle}>
 	<Greeting client:load messages={["Hi", "Hello", "Wotcha", "Now then", "Greetings"]}/>
-	<p>Now on stage 6.</p>
+	<h2>Trying out images</h2>
+	<p>Image 07</p>
+	<Image src={img07} alt="A test image."/>
+
+	<p>Image _04 (which avoids the warning because of its _)</p>
+	<Image src={img04} alt="Another test image."/>
+
+	<p>img 07 (which causes unsupported file type warning)</p>
+	<img src={img07.src} alt="A test image."/>
+
+	<p>Image from the _images folder aliased as @images</p>
+	<Image src={imgRugby1} alt="First rugby image." />
+
 </BaseLayout>
